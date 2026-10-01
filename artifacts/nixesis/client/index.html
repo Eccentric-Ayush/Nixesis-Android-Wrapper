@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#14120f" />
+    <meta name="description" content="Nixesis — build your winter arc with small, repeatable wins." />
+    <title>Nixesis — Winter Arc</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script type="module">
+      const endpoint = import.meta.env.VITE_ANALYTICS_ENDPOINT?.trim().replace(/\/+$/, "");
+      const websiteId = import.meta.env.VITE_ANALYTICS_WEBSITE_ID?.trim();
+      if (endpoint && websiteId) {
+        const analyticsScript = document.createElement("script");
+        analyticsScript.defer = true;
+        analyticsScript.src = `${endpoint}/umami`;
+        analyticsScript.dataset.websiteId = websiteId;
+        document.head.append(analyticsScript);
+      }
+    </script>
+  </body>
+</html>

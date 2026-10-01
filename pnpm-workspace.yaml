@@ -40,6 +40,9 @@ packages:
   - lib/integrations/*
   - scripts
 
+patchedDependencies:
+  wouter@3.7.1: artifacts/nixesis/patches/wouter@3.7.1.patch
+
 catalog:
   '@replit/vite-plugin-cartographer': ^0.5.21
   '@replit/vite-plugin-dev-banner': ^0.1.1
@@ -158,5 +161,10 @@ overrides:
   # drizzle-kit uses esbuild internally on an older version that's vulnerable, this overrides it
   "@esbuild-kit/esm-loader": "npm:tsx@^4.21.0"
   esbuild: "0.28.2"
+  # @capacitor/assets 3.0.5 brings Capacitor CLI 5, which pins a vulnerable tar 6 release.
+  # Use the maintained tar 7 line; the supported CLI tar extraction APIs are unchanged.
+  "@capacitor/cli@5>tar": "7.5.22"
+  # The latest Capacitor assets release still pins a prebuilt sharp version with install scripts.
+  "@capacitor/assets>sharp": "0.35.5"
   # orval pins js-yaml to an exact version older than the CVE fix (>=4.3.2)
   js-yaml: '4.3.2'

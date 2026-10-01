@@ -1,0 +1,28 @@
+I have an existing web app in this project built with [React / Vue / plain HTML-JS / etc.]. I want to wrap it as an Android app using Capacitor, without rewriting the app.
+
+Please do the following:
+
+1. Install Capacitor: @capacitor/core, @capacitor/cli, and @capacitor/android.
+
+2. Run `npx cap init` with app name "[YOUR APP NAME]" and app ID "[com.yourname.yourapp]". Set webDir in capacitor.config to my production build output folder ([dist / build / public]). If my app has no build step, move or copy the static files into a "www" folder and use that.
+
+3. Add a build script to package.json that builds the web app, then runs `npx cap sync android`.
+
+4. Run `npx cap add android` to generate the android/ folder.
+
+5. Check my code for things that will break inside Capacitor and fix them:
+   - Relative API calls (like fetch("/api/...")) won't work because the app is served from a local origin. Replace them with a configurable base URL that points to my deployed backend at [YOUR BACKEND URL], using an environment variable or config file.
+   - If the backend is on a different origin, tell me what CORS settings it needs to allow requests from capacitor://localhost and http://localhost.
+   - Make sure routing works without a server (use hash routing or a fallback if needed).
+   - Make sure the viewport meta tag and safe-area padding are set properly for mobile.
+
+6. Add an app icon and splash screen setup using @capacitor/assets, with placeholder source images in an assets/ folder that I can replace.
+
+7. Handle the Android back button using @capacitor/app so it navigates back or exits instead of misbehaving.
+
+8. Do NOT try to build the APK inside Replit, since the Android SDK isn't available here. Instead, make sure the android/ folder is committed and ready to push to GitHub, and write a BUILD_ANDROID.md file with step-by-step instructions for:
+   - Opening the project in Android Studio (`npx cap open android`)
+   - Running it on an emulator or a USB-connected phone
+   - Generating a signed release APK/AAB for the Play Store
+
+Make minimal changes to my existing code, and explain each change you make.

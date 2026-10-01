@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1789066227993,
+      "tag": "0000_chilly_namora",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1789066995137,
+      "tag": "0001_cynical_hex",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1790791334308,
+      "tag": "0002_clammy_monster_badoon",
+      "breakpoints": true
+    }
+  ]
+}

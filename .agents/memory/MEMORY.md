@@ -1,0 +1,1 @@
+- [Nixesis Android dependency setup](nixesis-android-dependencies.md) — Capacitor asset generation works with reviewed workspace overrides despite Replit package and install-script restrictions.
